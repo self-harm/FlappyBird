@@ -12,14 +12,8 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-
-
-
-
 public class FlappyBird implements ActionListener, MouseListener
-
 {
-
     public static FlappyBird flappyBird;
 
     public final int WIDTH = 800, HEIGHT = 800;
@@ -28,7 +22,6 @@ public class FlappyBird implements ActionListener, MouseListener
 
     public Rectangle bird;
 
-
     public int ticks, yMotion, score;
 
     public boolean gameOver, started;
@@ -36,8 +29,6 @@ public class FlappyBird implements ActionListener, MouseListener
     public ArrayList<Rectangle> columns;
 
     public Random rand;
-
-
 
     public FlappyBird()
     {
@@ -62,37 +53,31 @@ public class FlappyBird implements ActionListener, MouseListener
         addColumn(true);
         addColumn(true);
         addColumn(true);
-
-
+        
         timer.start();
     }
-
+    
     public void addColumn(boolean start) {
         int space = 300;
         int width = 100;
         int height = 50 + rand.nextInt(300);
 
         if (start) {
-
         columns.add(new Rectangle(WIDTH + width + columns.size() * 300,HEIGHT - height - 120, width, height));
         columns.add(new Rectangle(WIDTH + width + (columns.size() - 1) * 300, 0, width, HEIGHT - height - space));
     }
         else{
-
             columns.add(new Rectangle(columns.get(columns.size() -  1).x +600,HEIGHT - height - 120, width, height));
             columns.add(new Rectangle(columns.get(columns.size() -  2).x, 0, width, HEIGHT - height - space));
-
         }
     }
+    
     public void paintColumn(Graphics g, Rectangle column) {
-
         g.setColor(Color.green.darker());
         g.fillRect(column.x, column.y,column.width,column.height);
     }
 
-
     public void jump(){
-
         if (gameOver)
         {
             bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
@@ -100,17 +85,12 @@ public class FlappyBird implements ActionListener, MouseListener
             yMotion = 0;
             score = 0;
 
-
-
             addColumn(true);
             addColumn(true);
             addColumn(true);
             addColumn(true);
-
-
+            
             gameOver = false;
-
-
         }
 
         if (!started)

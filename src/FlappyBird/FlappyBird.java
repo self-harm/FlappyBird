@@ -103,18 +103,15 @@ public class FlappyBird implements ActionListener, MouseListener
             {
                 yMotion = 0;
             }
-
             yMotion -= 10;
-
         }
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+    
         int speed = 10;   //add speed
-
         ticks++;
 
         if (started) {
@@ -127,7 +124,6 @@ public class FlappyBird implements ActionListener, MouseListener
             if (ticks % 2 == 0 && yMotion < 15) {
                 yMotion += 2;
             }
-
             for (int i = 0; i < columns.size(); i++) {
                 Rectangle column = columns.get(i);
 
@@ -137,7 +133,6 @@ public class FlappyBird implements ActionListener, MouseListener
                     if (column.y == 0) {
                         addColumn(true);
                     }
-
                 }
             }
 
@@ -164,10 +159,8 @@ public class FlappyBird implements ActionListener, MouseListener
             if (bird.y + yMotion >= HEIGHT - 120) {
                 bird.y = HEIGHT - 120 - bird.height;
             }
-
         }
     renderer.repaint();
-
     }
 
     public void repaint(Graphics g) {
